@@ -1,12 +1,13 @@
 
 import './App.css';
 import router from "react-router-dom"
-//Home Page>category List>Question Page
-//sign Up Page
-//Login
-//Ask Question
-//Answer 
-//feed back 
+  //Home Page>category List>Question Page
+  //sign Up Page
+  //Login
+  //Ask Question
+  //Answer 
+  //feed back 
+
 import {BrowserRouter,
   Routes,
   Route
@@ -19,25 +20,22 @@ import AskQuestions from './Routes/AskQuestions';
 import Question from './Routes/Question';
 import Answer from './Routes/Answer';
 import Feedback from './Routes/Feedback';
+import Layout from './Layout';
 
 function App() {
   return (
-    <div className="App">
-      <header>
-        <h1>header</h1>
         <Routes>
-            <Route path="" element={<Home/>}/>
-            <Route path="category" element={<Category/>}/>
-            <Route path="login" element={<Login/>}/>
-             <Route path="sign-up" element={<SignUp/>}/>
-             <Route path="ask-questions" element={<AskQuestions/>}/>
-             <Route path="question" element={<Question/>}/>
-             <Route path="answer" element={<Answer/>}/>
-             <Route path="feedback" element={<Feedback/>}/>
+          <Route path="" element={<Layout/>}>
+              <Route path="" element={<Home/>}/>
+              <Route path="category" element={<Category/>}/>
+              <Route path="login" element={<Login/>}/>
+              <Route path="sign-up" element={<SignUp/>}/>
+              <Route path="ask-questions" element={<AskQuestions/>}/>
+              <Route path="question" element={<Question/>}/>
+              <Route path="answer" element={<Answer/>}/>
+              <Route path="feedback" element={<Feedback/>}/>
+          </Route>
         </Routes>
-      </header> 
-      
-    </div>
   );
 }
 
