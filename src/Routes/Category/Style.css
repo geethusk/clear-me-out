@@ -1,0 +1,48 @@
+.page-section{
+    width:100%;
+    padding:10px 0;
+    /* background-color: #ffff; */
+    margin-top: 10px;
+    display:grid;
+    grid-template-columns: repeat(2,auto);
+  }
+.container{
+    max-width:1400px;
+    padding:0 10px;
+    /* margin:auto; */
+    box-shadow: -4px -4px 4px 0px #FFFFFF26;
+    position :absolute;
+}
+.description-container{
+    padding:10px;
+    display: grid;
+   
+
+}
+.description-container h1{
+    font-size:25px;
+}
+ .description-container p{
+     font-size:16px;
+
+}
+.description-container h2{
+    font-size:21px;
+}
+.button-section{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);  
+    gap:10px;
+}
+
+.button-section button{
+    position: relative;
+    box-shadow: -4px -4px 4px 0px #FFFFFF26;
+    width: 139px;
+    left: 0px;
+    top: 0px;
+    right:0;
+    bottom:0;
+    border-radius: 11px;    
+}
+/* .description-container  */

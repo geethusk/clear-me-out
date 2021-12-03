@@ -1,13 +1,12 @@
-import React from 'react'
-import categoryImage from "../../assets/icons/CategoryImage.jpg"
 
-const categoryCard = () => {
+
+const categoryCard = ({image,title,description}) => {
     return (
         <div className="category-card">
-            <img src={categoryImage} alt="" />
+            <img className="category-card-image" src={image} alt={title} />
             <div className="details-section">
-                <h1>Electronics</h1>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione modi adipisci expedita deserunt autem nihil nesciunt animi. Voluptas excepturi, ullam, accusamus sequi ducimus cupiditate repudiandae, molestias veniam perspiciatis hic quae!</p>
+                <h1>{title}</h1>
+                <p>{description}</p>
             </div>
             
         </div>

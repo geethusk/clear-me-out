@@ -1,6 +1,7 @@
 *{
   margin:0;
   box-sizing: border-box;
+  font-family:'Roboto',sans-serif;
 }
 .main-container{
   max-width:1400px;
@@ -48,11 +49,20 @@ header .main-container{
   padding:40px 0;
   margin:auto;
 }
-p{
+.details-section p{
   display:-webkit-box;
-  -webkit-line-clamp:2;
+  -webkit-line-clamp:3;
   -webkit-box-orient:vertical ;
   overflow: hidden;
+}
+.details-section h1{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width:100%;
+  line-height: 35px;
+  height:70px;
+  font-size: 25px;
+
 }
 
 .category-card{
@@ -61,13 +71,17 @@ p{
   cursor:pointer;
 }
 .category-card img{
+  display:block;
   width:100%;
   transition:transform 0.2s ease-in-out;  
 }
 .details-section{
-  background-color: white;
+  /* background-color: white; */
   padding:10px;
 }
 .body-container{
   overflow:auto;
 }
+
+/* --------------------------------------------------------- */
+
