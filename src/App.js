@@ -34,6 +34,7 @@ function App() {
               <Route path="question" element={<Question/>}/>
               <Route path="answer" element={<Answer/>}/>
               <Route path="feedback" element={<Feedback/>}/>
+              <Route path="category/:title" element={<Category/>}/>
           </Route>
         </Routes>
   );
