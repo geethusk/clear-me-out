@@ -1,5 +1,5 @@
 // import {Link} from "react-router-dom"
-import CategoryCard from "../Components/categoryCard"
+import CategoryCard from "../Components/CategoryCard"
 import CategoryImage from "../../assets/icons/CategoryImage.jpg"
 
 const categoryList=[

@@ -16,25 +16,53 @@ const SignUp = () => {
             <h1> Sign Up</h1>
             <form>
                 <div className="input-field">
-                    <input type="text" />
-                    <div className="form-label">
+                    <input type="text" value={fullName}
+                    onChange={(e)=>{
+                        setFormData({
+                            ...formData,
+                           fullName: e.target.value
+                        })
+                }}
+                        />
+                    <div className="form-label" >
                         Full Name
                     </div>
                 </div>
                 <div className="input-field">
-                    <input type="text" />
+                    <input type="text"value={email} 
+                    onChange={(e)=>{
+                        setFormData({
+                            ...formData,
+                           email: e.target.value
+                        })
+                }}
+                    />
                     <div className="form-label">
                         email
                     </div>
                 </div>
                 <div className="input-field">
-                    <input type="text" />
+                    <input type="text" value={password} 
+                    onChange={(e)=>{
+                        setFormData({
+                            ...formData,
+                           password: e.target.value
+                        })
+                }}
+                    />
                     <div className="form-label">
                         Password
                     </div>
                 </div>
                 <div className="input-field">
-                    <input type="text" />
+                    <input type="text" value={confirmPassword}
+                    onChange={(e)=>{
+                        setFormData({
+                            ...formData,
+                            confirmPassword: e.target.value
+                        })
+                }}
+                    />
                     <div className="form-label">
                         confirm Password
                     </div>
