@@ -34,13 +34,34 @@ const SignUp = () => {
             })
         }
 
+
             const signUpCall=(e)=>{
                 e.preventDefault();
+                //<--confirm password error-->//
+
                 !confirmPassword?         // same as if ->(else->if)
                 onError("confirmPasswordError","Confirm Your Password"):
                 password!==confirmPassword?
                 onError("confirmPasswordError","Password Miss Match"):
                 onError("confirmPasswordError","");
+
+                //<--full Name error section-->//
+                !fullName? onError("fullNameError","full name cannot be empty"):
+                fullName.length<=2? 
+                onError("fullNameError","kindly provide your full name"):
+                onError("fullNameError","");
+
+                //<--email error section-->//
+                !email?
+                onError("emailError","Email cannot be empty"):
+                onError("emailError","");
+
+                //<--password error section-->//
+                !password?
+                onError("passwordError","password cannot be empty"):
+                onError("password","");
+
+
             }
 
     return (
@@ -52,12 +73,14 @@ const SignUp = () => {
                         value={fullName}
                         onChange={(value)=>onChange("fullName",value)}
                         label="Full Name"
+                        error={fullNameError}
                
                     />
                   <InputField
                         value={email}
                         onChange={(value)=>onChange("email",value)}
                         label="Email"
+                        error={emailError}
                
                     />
                  <InputField
@@ -65,7 +88,7 @@ const SignUp = () => {
                         onChange={(value)=>onChange("password",value)}
                         label="password"
                         type="password"
-               
+                        error={passwordError}
                     />
                    <InputField
                         value={confirmPassword}
