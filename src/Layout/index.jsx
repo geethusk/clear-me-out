@@ -10,7 +10,11 @@ const Layout = () => {
                 <div className="header-section">
                     <img src={logo} alt="logo" />
                 </div>
-               <div  className="login-button">
+               <div 
+                onClick={()=>{
+                    navigate("/login")
+                }}
+               className="login-button">
                     Login
                 </div>
                 <div

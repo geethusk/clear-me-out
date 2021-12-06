@@ -2,7 +2,7 @@ import React from 'react'
 import "./Style.css"
 import { useState } from 'react';
 import InputField from '../Components/InputField';
-import { isValidEmail } from '../../Utility/validation';
+import { isValidEmail,isValidPassword } from '../../Utility/validation';
 
 const SignUp = () => {
     const [formData,setFormData]=useState({
@@ -60,8 +60,10 @@ const SignUp = () => {
                
 
                 //<--password error section-->//
-                !password?
-                onError("passwordError","password cannot be empty"):
+                // !password?
+                // onError("passwordError","password cannot be empty"):
+                password.length<=8? onError("passwordError","password must be 8 letter long"):
+                !isValidPassword(password)?onError("passwordError","password must contain digit and alphabets"):
                 onError("password","");
 
 

@@ -41,6 +41,7 @@ header .main-container{
 .login-button{
   background-color: unset;
   color:#0080A8;
+  cursor:pointer;
 }
 .category-container{
   display:grid;
