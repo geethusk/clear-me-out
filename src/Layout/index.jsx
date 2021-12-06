@@ -1,7 +1,8 @@
-import {Outlet} from 'react-router-dom'
+import {Outlet,useNavigate} from 'react-router-dom'
 import logo from "../assets/icons/ClearMeOut.svg"
 
 const Layout = () => {
+    const navigate=useNavigate();
     return (
         <div className="App">
             <header>
@@ -9,11 +10,15 @@ const Layout = () => {
                 <div className="header-section">
                     <img src={logo} alt="logo" />
                 </div>
-                <div className="login-button">
+               <div  className="login-button">
                     Login
                 </div>
-                <div className="sign-up-button">
-                   Signup
+                <div
+                 onClick={()=>{
+                     navigate("/sign-up")
+                 }}
+                className="sign-up-button">
+                   Sign Up
                 </div>
             </div>
             

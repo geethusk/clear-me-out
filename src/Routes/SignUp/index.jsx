@@ -2,6 +2,7 @@ import React from 'react'
 import "./Style.css"
 import { useState } from 'react';
 import InputField from '../Components/InputField';
+import { isValidEmail } from '../../Utility/validation';
 
 const SignUp = () => {
     const [formData,setFormData]=useState({
@@ -28,10 +29,10 @@ const SignUp = () => {
 
         }
         const onError=(key,value)=>{
-            setFormErrorData({
-                ...formErrorData,
+            setFormErrorData(prev=>({
+                ...prev,
                [key]: value,  //to set the value which is sending as key,  we need to take the value inside key .
-            })
+            }))
         }
 
 
@@ -47,14 +48,16 @@ const SignUp = () => {
 
                 //<--full Name error section-->//
                 !fullName? onError("fullNameError","full name cannot be empty"):
-                fullName.length<=2? 
+                fullName.length<=3? 
                 onError("fullNameError","kindly provide your full name"):
                 onError("fullNameError","");
 
                 //<--email error section-->//
-                !email?
-                onError("emailError","Email cannot be empty"):
+                // !email?
+                // onError("emailError","Email cannot be empty"):
+                !isValidEmail(email)? onError("emailError","email is not valid"):
                 onError("emailError","");
+               
 
                 //<--password error section-->//
                 !password?
