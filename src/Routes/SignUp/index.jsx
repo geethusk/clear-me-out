@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./Style.css"
 import { useState } from 'react';
 import InputField from '../Components/InputField';
 import { isValidEmail,isValidPassword } from '../../Utility/validation';
 
 const SignUp = () => {
+    const [isFormSubmitted,setIsFormSubmitted]=useState(false);
     const [formData,setFormData]=useState({
         fullName:"",
         email:"",
@@ -18,6 +19,9 @@ const SignUp = () => {
         passwordError:"",
         confirmPasswordError:"",
     });
+    useEffect(()=>{
+        formValidate();
+    },[formData])
         const {fullName,email,password,confirmPassword}=formData;
         const {fullNameError,emailError,passwordError,confirmPasswordError}=formErrorData;
 
@@ -26,7 +30,6 @@ const SignUp = () => {
                 ...formData,
                [key]: value,   //to set the value which is sending as key,  we need to take the value inside key .
             })
-
         }
         const onError=(key,value)=>{
             setFormErrorData(prev=>({
@@ -38,47 +41,79 @@ const SignUp = () => {
 
             const signUpCall=(e)=>{
                 e.preventDefault();
+                setIsFormSubmitted(true);
+                if(formValidate()){
+                    console.log("sign up success");
+                }
                 //<--confirm password error-->//
-
-                !confirmPassword?         // same as if ->(else->if)
-                onError("confirmPasswordError","Confirm Your Password"):
-                password!==confirmPassword?
-                onError("confirmPasswordError","Password Miss Match"):
-                onError("confirmPasswordError","");
-
+            }
+            const formValidate=()=>{
+                let isValidForm=true;
+                if(!confirmPassword){
+                    onError("confirmPasswordError","Confirm Your Password");
+                    isValidForm=false;
+                }         // same as if ->(else->if)
+                else{
+                    if(password!==confirmPassword){
+                        onError("confirmPasswordError","Password Miss Match")
+                        isValidForm=false;
+                    }else{
+                        onError("confirmPasswordError","");
+                    }
+                }
                 //<--full Name error section-->//
-                !fullName? onError("fullNameError","full name cannot be empty"):
-                fullName.length<=3? 
-                onError("fullNameError","kindly provide your full name"):
-                onError("fullNameError","");
+                if(!fullName){
+                    onError("fullNameError","full name cannot be empty");
+                    isValidForm=false;
+                }else{
+                    if(fullName.length<=3){
+                        onError("fullNameError","kindly provide your full name");
+                        isValidForm=false;
+                    }else{
+                        onError("fullNameError","");
+                    }
+                }
+                
+                 
 
                 //<--email error section-->//
                 // !email?
                 // onError("emailError","Email cannot be empty"):
-                !isValidEmail(email)? onError("emailError","email is not valid"):
-                onError("emailError","");
-               
-
+                if(!isValidEmail(email)){
+                    onError("emailError","email is not valid");
+                    isValidForm=false;
+                }else{
+                    onError("emailError","");
+                }
                 //<--password error section-->//
-                // !password?
-                // onError("passwordError","password cannot be empty"):
-                password.length<=8? onError("passwordError","password must be 8 letter long"):
-                !isValidPassword(password)?onError("passwordError","password must contain digit and alphabets"):
-                onError("password","");
+                if(!password){
+                    onError("passwordError","password cannot be empty");
+                    isValidForm=false;
+                }else{
+                    if(password.length<=7){
+                        onError("passwordError","password must be 8 letter long");
+                        isValidForm=false;
+                    }
+                    else{
+                        onError("passwordError","");
 
-
-            }
+                    }
+                } 
+                return isValidForm;
+            
+            }   
 
     return (
         <div className="main-container">
             <div className="sub-container">
             <h1> Sign Up</h1>
             <form onSubmit={signUpCall}>
-                    <InputField
+                    <InputField 
                         value={fullName}
                         onChange={(value)=>onChange("fullName",value)}
                         label="Full Name"
                         error={fullNameError}
+                        isFormSubmitted={isFormSubmitted}
                
                     />
                   <InputField
@@ -86,6 +121,7 @@ const SignUp = () => {
                         onChange={(value)=>onChange("email",value)}
                         label="Email"
                         error={emailError}
+                        isFormSubmitted={isFormSubmitted}
                
                     />
                  <InputField
@@ -94,6 +130,7 @@ const SignUp = () => {
                         label="password"
                         type="password"
                         error={passwordError}
+                        isFormSubmitted={isFormSubmitted}
                     />
                    <InputField
                         value={confirmPassword}
@@ -101,6 +138,7 @@ const SignUp = () => {
                         label="confirmPassword"
                         type="password"
                         error={confirmPasswordError}
+                        isFormSubmitted={isFormSubmitted}
                     />
                 <button type="submit" className="sign-up-button">Sign Up</button>
          
