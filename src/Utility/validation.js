@@ -5,7 +5,7 @@ export const isValidEmail =(inputText)=>{
         
     }
 export const isValidPassword=(password)=>{
-    const passwd= /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/;;
+    const passwd= /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/
     if(passwd.test(password)) return true
         return false
 }

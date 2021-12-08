@@ -28,7 +28,7 @@ const Layout = () => {
             
             </header>
             <div className="body-container">
-             <Outlet/>
+           <Outlet/>    {/* //header okke  outlet il aanu ullath */}
             </div>
            
         </div>

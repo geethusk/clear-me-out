@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import "./Style.css"
 import { useState } from 'react';
 import InputField from '../Components/InputField';
-import { isValidEmail,isValidPassword } from '../../Utility/validation';
+import { isValidEmail} from '../../Utility/validation';
 
 const SignUp = () => {
     const [isFormSubmitted,setIsFormSubmitted]=useState(false);

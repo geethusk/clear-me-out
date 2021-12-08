@@ -21,10 +21,13 @@ import Question from './Routes/Question';
 import Answer from './Routes/Answer';
 import Feedback from './Routes/Feedback';
 import Layout from './Layout';
+import Test from './Dummy/Test';
+
 
 function App() {
   return (
         <Routes>
+          <Route path="test" element={<Test/>}/>
           <Route path="" element={<Layout/>}>
               <Route path="" element={<Home/>}/>
               <Route path="category" element={<Category/>}/>
