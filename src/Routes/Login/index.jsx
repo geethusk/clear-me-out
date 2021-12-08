@@ -81,6 +81,7 @@ const Login = () => {
                     }
                     label="Email"
                     error={emailError}
+                    isFormSubmitted={isFormSubmitted}
                     />
                 <InputField
                         value={password}
@@ -90,6 +91,7 @@ const Login = () => {
                     label="Password"
                     type="password"
                     error={passwordError}
+                    isFormSubmitted={isFormSubmitted}
                     />
                 <button type="submit" className="sign-up-button">Login</button>
          
