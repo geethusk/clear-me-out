@@ -10,10 +10,12 @@
       width:100%;
   }
 .container{
-    max-width:1400px;
+    max-width:1800px;
     padding:0 10px;
     box-shadow: -4px -4px 4px 0px #FFFFFF26;
     position :absolute;
+    margin: 10px 20px ;
+    background-color: white;
 }
 .description-container{
     padding:10px;
@@ -34,7 +36,9 @@
 .button-section{
     display:flex;
     gap:10px;
-    flex-flow:row wrap ;
+    /* flex-flow:row wrap ; */
+    flex-direction: row;
+    flex-wrap: nowrap;
 
 }
 
@@ -70,4 +74,7 @@
 .answer-count-section img{
     height:20px;
     width:20px;
+}
+.question-section{
+    cursor:pointer;
 }
