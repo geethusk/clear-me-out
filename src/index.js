@@ -5,12 +5,16 @@ import App from './App';
 import {BrowserRouter} from "react-router-dom";
 import { createStore } from 'redux'
 
-const reducer=(state = 0, action)=> {
+
+const reducer=(state=[], action)=> {
   switch (action.type) {
-    case "Increment":
-      return state+1
-    case "Decrement":
-        return state-1
+    case 'ADD_TODO':
+      return [...state,action.value]
+    case 'DELETE_TODO':
+        return state.filter((_value,index)=>
+          action.index!==index)
+    case 'SORT_TODO':
+        return [...state.sort()]
     default:
       return state
   }

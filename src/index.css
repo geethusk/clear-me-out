@@ -85,4 +85,27 @@ header .main-container{
 }
 
 /* --------------------------------------------------------- */
+.c-container{
+  width:80%;
+  height:100%;
+  margin:auto 10px;
+  background-color:white ;
+  margin:10px auto;
 
+}
+.input-section{
+  display:grid;
+  grid-template-columns:1fr auto auto;
+  gap:30px;
+  padding:10px;
+}
+.sub-button{
+  background-color: blue;
+  padding:5px;
+  color: white;
+}
+.todo-list{
+padding:10px 20px;
+cursor:pointer;
+
+}
