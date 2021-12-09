@@ -21,9 +21,10 @@ import Question from './Routes/Question';
 import Answer from './Routes/Answer';
 import Feedback from './Routes/Feedback';
 import Layout from './Layout';
+import Counter from './Counter';
 
 
-function App() {
+function App({store}) {
   return (
         <Routes>
           {/* <Route path="test" element={<Test/>}/> */}
@@ -37,6 +38,7 @@ function App() {
               <Route path="answer" element={<Answer/>}/>
               <Route path="feedback" element={<Feedback/>}/>
               <Route path="category/:title" element={<Category/>}/>
+              <Route path="counter" element={<Counter store={store}/>}/>
           </Route>
         </Routes>
   );
