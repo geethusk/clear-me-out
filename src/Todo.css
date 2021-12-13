@@ -1,0 +1,28 @@
+button{
+    /* margin: 20px; */
+    padding: 20px 30px;
+    background-color: #3f4ea6;
+    color: white;
+    border-radius: 5px;
+}
+.input-section{
+    width:100%;
+}
+.sub--container{
+    display:flex;
+    padding:10px;
+    gap:5px;
+   
+}
+.result-section{
+    margin:10px;
+  
+}
+.sub-result{
+    display: grid;
+    grid-template-columns:1fr auto ;
+}
+.delete-button{
+    padding:10px;
+
+}

@@ -1,71 +1,35 @@
-import React from 'react'
-import { useState } from 'react';
+// import React from 'react'
+// import { useSelector,useDispatch } from 'react-redux';
 
-const Counter = ({store}) => {
-    const [input,setInput]=useState("");
+// const Counter = () => {  
+//     const count=useSelector(state => state);        //state aanu pass cheyyendathu.
+//     const dispatch=useDispatch()
+//     console.log(count);
+//     return (
+//         <div className="c-container">
+//             <button             
+//                 onClick={
+//                     ()=>{
+//                         dispatch({
+//                             type:"Increment"
+//                         })
+//                     }
+//                     }
+//             >
+//             +</button>
+//             <div className="input-section">
+//                 {count}      
+//           </div> 
+//           <button
+//             onClick={
+//                 ()=>{
+//                     dispatch({
+//                         type:"Decrement"
+//                     })
+//                 }}
+//         >-</button>     
+//     </div>
+//     )
+// }
 
-    const addTodo=(value)=>{
-        store.dispatch({
-            type:"ADD_TODO",
-            value
-        })
-    }
-
-    const deleteTodo=(index)=>{
-        store.dispatch({
-            type:"DELETE_TODO",
-            index
-        })
-    }
-    const sortTodo=(value)=>{
-        store.dispatch({
-            type:"SORT_TODO",
-            value
-        })
-        }  
-    return (
-        <div className="c-container">
-            <div className="input-section">
-            <input type="text"
-                onChange={
-                    (e)=>{
-                        setInput(e.target.value)
-                        
-                }}
-            />
-            <button className="sub-button"
-            onClick={
-                ()=>{
-                    addTodo(input)
-                    setInput("");
-            }}
-            >Add</button>
-            <div>
-                <button className="sub-button"
-                    onClick={
-                        ()=>{
-                            sortTodo(input)
-                        }
-                    }>Sort</button></div>
-                 </div>
-            <div className="todo-list">
-                {
-                    store.getState().map((value,i)=><div className="close-button" key={i}>
-                    {value}
-                <button
-                    onClick={
-                        ()=>{
-                            deleteTodo(i)
-                        }
-                    }>close</button>
-                    </div>)
-                }
-                
-          </div>
-
-            
-    </div>
-    )
-}
-
-export default Counter
+// export default Counter

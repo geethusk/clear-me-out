@@ -22,14 +22,17 @@ import Answer from './Routes/Answer';
 import Feedback from './Routes/Feedback';
 import Layout from './Layout';
 import Counter from './Counter';
+import Todo from './Todo'
 
 
-function App({store}) {
+
+function App() {
   return (
         <Routes>
           {/* <Route path="test" element={<Test/>}/> */}
           <Route path="" element={<Layout/>}>
               <Route path="" element={<Home/>}/>
+              <Route path="todo" element={<Todo/>}/>
               <Route path="category" element={<Category/>}/>
               <Route path="login" element={<Login/>}/>
               <Route path="sign-up" element={<SignUp/>}/>
@@ -38,7 +41,7 @@ function App({store}) {
               <Route path="answer" element={<Answer/>}/>
               <Route path="feedback" element={<Feedback/>}/>
               <Route path="category/:title" element={<Category/>}/>
-              <Route path="counter" element={<Counter store={store}/>}/>
+              <Route path="counter" element={<Counter />}/>
           </Route>
         </Routes>
   );
