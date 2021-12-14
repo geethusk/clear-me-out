@@ -3,6 +3,7 @@ import "./Style.css"
 import InputField from '../Components/InputField'
 import { useState,useEffect } from 'react'
 import { isValidEmail } from '../../Utility/validation'
+import { useDispatch } from 'react-redux'
 
 const Login = () => {
     const [isFormSubmitted,setIsFormSubmitted]=useState(false);
@@ -34,14 +35,18 @@ const Login = () => {
                [key]: value,  //to set the value which is sending as key,  we need to take the value inside key .
         })
         )}
+        const dispatch=useDispatch();
         const loginCall=(e)=>{
             e.preventDefault();  //to prevent reloading
             setIsFormSubmitted(true);
                 if(formValidate()){
-                    console.log("Login success");
+                   dispatch({
+                       type:"LoggedIn"
+                   })
                 }
                 
         }
+
         const formValidate=()=>{
             let isValidForm=true;
             if(!email){
@@ -68,6 +73,7 @@ const Login = () => {
             return isValidForm;
         
         } 
+        
 
     return (
         <div className="main-container">

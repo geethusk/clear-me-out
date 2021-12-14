@@ -37,8 +37,9 @@ header .main-container{
   color:white;
   border-radius:10px;
   background-color: #0080A8;
+  
 }
-.login-button{
+.login-button,.logout-button{
   background-color: unset;
   color:#0080A8;
   cursor:pointer;

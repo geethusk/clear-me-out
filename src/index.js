@@ -5,14 +5,56 @@ import App from './App';
 import {BrowserRouter} from "react-router-dom";
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
+import postTodo from './Services/postTodo';
 
-
-const reducer=(state=[], action)=> {
-  switch (action.type) {
-    case "ADD_TODO":
-      return [...state,action.value]
+const reducer=(state=
+  {
+    todos:[],
+    counter:0,
+    isLoggedIn:true,
+  },
+   action)=> {
+  let updatedList;
+  switch (action.type) { 
+    case "CREATE":
+      return {
+        ...state,
+        todos:action.value
+      }
+    case "ADD_TODO": 
+     updatedList=[...state.todos,action.value]
+      postTodo(updatedList)
+      return {
+        ...state,
+        todos:updatedList
+      }
     case "Delete":
-        return state.filter((_value,i)=>i!==action.index)
+      updatedList= state.todos.filter((_value,i)=>i!==action.index)
+      postTodo(updatedList)
+        return {
+          ...state,
+          todos:updatedList
+        }
+    case "Increment":
+      return{
+        ...state,
+        counter:state.counter+1
+      }
+    case "Decrement":
+      return{
+        ...state,
+        counter:state.counter-1
+      }
+    case "LogOut":
+      return{
+        ...state,
+        isLoggedIn:false
+      }
+    case "LoggedIn":
+      return{
+        ...state,
+        isLoggedIn:true
+      }
     default:
       return state
   }

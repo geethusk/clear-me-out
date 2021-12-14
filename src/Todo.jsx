@@ -1,12 +1,37 @@
 import React from 'react'
 import {useSelector,useDispatch} from 'react-redux'
-import { useState } from 'react'
+import { useState} from 'react'
+import { useEffect } from 'react'
 import "./Todo.css"
+// import postData from   "./Services/postData"
 
 const Todo = () => {
-    const todoList= useSelector(state => state)
+    const todoList= useSelector(state => state.todos)
     const dispatch=useDispatch();
     const [input,setInput]=useState();
+useEffect(() => {
+    // let newTask={
+    //         user: "geethuSuresh",
+    //         todos: [
+    //           {
+    //             text: "This is a task 1",
+    //             status: true
+    //           },
+    //       {
+    //             text: "This is a task 2",
+    //             status: false
+    //           }
+    //         ]
+    //     }
+    //     postData("http://192.168.1.42:8086/todos",newTask)
+    //     .then(data=>console.log(data))
+        fetch("http://192.168.1.42:8086/todos/geethuSuresh")
+        .then(response=>response.json())
+        .then((data)=>dispatch({
+            type:"CREATE",
+            value:data[0].todos.map(value=>value.text)
+        }))
+}, [])
 
     return (
         <div className="c-container">
